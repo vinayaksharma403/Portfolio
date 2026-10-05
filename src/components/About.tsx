@@ -445,44 +445,30 @@ const About = ({ musicEnabled = false }: { musicEnabled?: boolean }) => {
                 }}
               />
 
-              <motion.div
+              {/* Player Tag at Top-Right */}
+              <div className="absolute top-5 right-5 z-20 bg-[#143d32]/90 border-2 border-[#5ca88c] rounded-xl px-3 py-1.5 backdrop-blur-xs shadow-[3px_3px_0_#082b22] flex items-center gap-2 select-none">
+                <span className="w-2 h-2 rounded-full bg-[#06d49f] animate-pulse" />
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#ffd064] font-bold">
+                  PLAYER 1 // VINAYAK SHARMA
+                </span>
+              </div>
+
+              {/* Robot Character Illustration with Mouse Parallax */}
+              <motion.img
+                src="/images/portfolio-profile.png"
+                alt="Vinayak Sharma — Robot Avatar"
                 animate={{
                   x: mouse.x * 1.5,
                   y: mouse.y * 1.5,
-                  scale: 1.02,
+                  scale: 1.05,
                 }}
                 transition={{
                   type: "spring",
                   stiffness: 100,
                   damping: 15,
                 }}
-                className="flex flex-col items-center justify-center text-center p-8 z-10 select-none"
-              >
-                {/* Avatar Shield */}
-                <div className="relative mb-6">
-                  <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl bg-[#ffd064] border-4 border-[#143d32] shadow-[6px_6px_0_#143d32] flex items-center justify-center">
-                    <span className="font-mono font-black text-6xl md:text-7xl text-[#143d32] tracking-tight">
-                      VS
-                    </span>
-                  </div>
-                  <div className="absolute -bottom-3 -right-3 bg-[#06d49f] border-3 border-[#143d32] rounded-xl px-3 py-1 font-mono font-bold text-xs text-[#143d32] shadow-[2px_2px_0_#143d32]">
-                    LVL 5
-                  </div>
-                </div>
-
-                {/* Character Details */}
-                <div className="bg-[#143d32]/80 border-3 border-[#5ca88c] rounded-2xl px-6 py-4 backdrop-blur-xs shadow-[4px_4px_0_#082b22] max-w-xs">
-                  <p className="font-mono text-xs uppercase tracking-widest text-[#ffd064] font-bold">
-                    PLAYER 1 // ACTIVE
-                  </p>
-                  <h3 className="text-xl md:text-2xl font-black text-white mt-1">
-                    Vinayak Sharma
-                  </h3>
-                  <p className="text-xs font-semibold text-[#a8d5c4] mt-1">
-                    Full-Stack Developer • Problem Solver
-                  </p>
-                </div>
-              </motion.div>
+                className="w-full h-full object-contain scale-125 z-10 select-none pointer-events-none"
+              />
 
               {/* Bottom Stats */}
 
