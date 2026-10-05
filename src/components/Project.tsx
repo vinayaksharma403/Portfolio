@@ -467,7 +467,7 @@ export default function Projects({
                               setLightboxIndex(activeImageIndex);
                               setIsLightboxOpen(true);
                             }}
-                            className="relative h-48 sm:h-56 md:h-60 w-full overflow-hidden bg-[#0c241e] cursor-pointer group/img"
+                            className="relative h-48 sm:h-56 md:h-60 w-full overflow-hidden bg-[#0c241e] cursor-pointer group/img flex items-center justify-center"
                           >
                             {/* Subtle Scanlines overlay */}
                             <div
@@ -492,14 +492,14 @@ export default function Projects({
                                   alt={current.images[activeImageIndex].alt}
                                   fill
                                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                                  className="object-cover object-top transition-transform duration-300 group-hover/img:scale-102"
+                                  className="object-contain transition-transform duration-300 group-hover/img:scale-[1.01]"
                                   priority
                                 />
                               </motion.div>
                             </AnimatePresence>
 
                             {/* Hover zoom indicator overlay */}
-                            <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-200 group-hover/img:opacity-100">
+                            <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-black/35 opacity-0 transition-opacity duration-200 group-hover/img:opacity-100">
                               <div className="flex items-center gap-2 rounded-xl border-3 border-[#222] bg-[#ffd100] px-3.5 py-1.5 font-black text-xs text-[#111] shadow-[4px_4px_0_#111]">
                                 <ZoomIn size={16} />
                                 <span>INSPECT SCREENSHOT</span>
