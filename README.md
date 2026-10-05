@@ -2,12 +2,12 @@
 
 > An interactive retro-inspired developer portfolio built with Next.js.
 
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/bd3b78d4-38f6-479f-abe7-beeb2c75fb00" />
+<img width="1918" height="1078" alt="image" src="public/images/projects/portfolio/portfolio-img.png" />
 
 
 ## 🌐 Live Demo
 
-**Website:** TODO — Deployed Portfolio URL
+**Website:** TODO — [Deployed Portfolio URL](https://portfolio-five-sage-14.vercel.app/)
 
 ---
 
