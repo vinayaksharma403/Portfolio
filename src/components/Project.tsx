@@ -259,7 +259,7 @@ export default function Projects({
               {projects.map((exp, index) => (
                 <div
                   key={exp.name}
-                  className={`flex items-center justify-between rounded-xl border-4 border-[#222] px-4 py-5 transition-all duration-300 text-black
+                  className={`flex items-center justify-between gap-3 rounded-xl border-4 border-[#222] px-4 py-5 transition-all duration-300 text-black
                     ${
                       selected === index
                         ? "bg-[#ffd100] shadow-[0_8px_0_#222]"
@@ -267,7 +267,7 @@ export default function Projects({
                     }
                   `}
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3.5 min-w-0 flex-1">
                     <motion.div
                       animate={{
                         scale: selected === index ? [1, 1.15, 1] : 1,
@@ -276,7 +276,7 @@ export default function Projects({
                         duration: 1.2,
                         repeat: selected === index ? Infinity : 0,
                       }}
-                      className={`h-3 w-3 rounded-full border-2 border-[#444]
+                      className={`h-3 w-3 shrink-0 rounded-full border-2 border-[#444]
                         ${
                           selected === index
                             ? "bg-[#8c7d32] shadow-[0_0_10px_rgba(140,125,50,0.6)]"
@@ -285,7 +285,7 @@ export default function Projects({
                         `}
                     />
 
-                    <span className="font-black text-sm">{exp.name}</span>
+                    <span className="font-black text-sm leading-tight break-words">{exp.name}</span>
                   </div>
 
                   <button
@@ -294,7 +294,7 @@ export default function Projects({
                       if (musicEnabled) playClickSound();
                       switchProject(index);
                     }}
-                    className={`relative h-10 w-16 rounded-full border-4 border-[#2d2d2d]
+                    className={`relative h-10 w-16 shrink-0 rounded-full border-4 border-[#2d2d2d]
     ${isLoading ? "cursor-not-allowed opacity-50" : "cursor-pointer"}
     ${
       selected === index
@@ -311,7 +311,7 @@ export default function Projects({
                       }}
                       className="absolute top-0.75 left-0.75 h-6 w-6 rounded-full border-4 border-[#333] bg-[#f4f4f4] shadow-[0_2px_6px_rgba(0,0,0,0.25)]"
                       animate={{
-                        x: selected === index ? 32 : 0,
+                        x: selected === index ? 26 : 0,
                         rotate: selected === index ? 180 : 0,
                       }}
                     />
@@ -377,7 +377,7 @@ export default function Projects({
             </div>
 
             {/* Terminal Viewport */}
-            <div className="relative min-h-105 overflow-hidden bg-[#f8f8f8] p-4 sm:p-6">
+            <div className="relative min-h-105 bg-[#f8f8f8] p-4 sm:p-6">
               {/* Scanlines */}
               <div
                 className="pointer-events-none absolute inset-0 opacity-15"
@@ -671,7 +671,7 @@ export default function Projects({
                     )}
 
                     {/* RIGHT COLUMN: PROJECT DETAILS */}
-                    <div className="flex flex-col min-w-0 flex-1 justify-between">
+                    <div className="flex flex-col min-w-0 flex-1 justify-between gap-4">
                       <div>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-wide bg-linear-to-r from-[#ff7a00] via-[#ffb347] to-[#ffd100] bg-clip-text text-transparent drop-shadow-[2px_2px_0_rgba(0,0,0,0.15)] -mt-1">
                           {current.title}
