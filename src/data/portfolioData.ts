@@ -382,7 +382,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
           alt: "NeuroFlux interactive AI study assistant chat interface",
         },
       ],
-      github: "",
+      github: "https://github.com/Kabirjeet/NeuroFlux",
       live: "https://neuroflux-frontend-r0sz.onrender.com",
       badge: "Full Stack",
       techSummary: "React • Node.js • Express • MongoDB",
@@ -450,9 +450,15 @@ export const PORTFOLIO_DATA: PortfolioData = {
       category: "Personal Portfolio / Frontend",
       description:
         "Personal developer portfolio engineered with Next.js, React, TypeScript, Tailwind CSS, Framer Motion, and Three.js to showcase technical skills, full-stack projects, interactive resume experiences, and verified contact coordinates.",
-      image: "",
-      images: [],
-      github: "",
+      image: "/images/projects/portfolio/portfolio-img.png",
+      images: [
+        {
+          src: "/images/projects/portfolio/portfolio-img.png",
+          title: "Portfolio Overview",
+          alt: "Vinayak Sharma developer portfolio homepage and interactive 3D showcase",
+        },
+      ],
+      github: "https://github.com/vinayaksharma403/Portfolio",
       live: "https://portfolio-dhleivsqf-vinayaksharma403s-projects.vercel.app/",
       badge: "Frontend / 3D",
       techSummary: "Next.js • React • TypeScript • Tailwind CSS • Framer Motion • Three.js",
