@@ -13,6 +13,12 @@
  * =======================================================================
  */
 
+export interface ProjectImage {
+  src: string;
+  title: string;
+  alt: string;
+}
+
 export interface PortfolioData {
   identity: {
     fullName: string;
@@ -71,9 +77,11 @@ export interface PortfolioData {
     category: string;
     description: string;
     image: string;
+    images?: ProjectImage[];
     github: string;
     live: string;
     badge: string;
+    techSummary?: string;
     techStack: string[];
     points: string[];
   }[];
@@ -346,10 +354,38 @@ export const PORTFOLIO_DATA: PortfolioData = {
       category: "Full-Stack Development",
       description:
         "A full-stack web application engineered with React on the frontend and a Node.js/Express backend backed by MongoDB.",
-      image: "",
+      image: "/images/projects/neuroflux/neuroflux-dashboard.png",
+      images: [
+        {
+          src: "/images/projects/neuroflux/neuroflux-dashboard.png",
+          title: "Dashboard",
+          alt: "NeuroFlux dashboard showing AI learning resources",
+        },
+        {
+          src: "/images/projects/neuroflux/neuroflux-document.png",
+          title: "Document / Resource Processing",
+          alt: "NeuroFlux document upload and resource processing interface",
+        },
+        {
+          src: "/images/projects/neuroflux/neuroflux-flashcards.png",
+          title: "Flashcards",
+          alt: "NeuroFlux AI-generated interactive study flashcards",
+        },
+        {
+          src: "/images/projects/neuroflux/neuroflux-quiz.png",
+          title: "Quiz",
+          alt: "NeuroFlux automated quiz generation and assessment interface",
+        },
+        {
+          src: "/images/projects/neuroflux/neuroflux-chat.png",
+          title: "AI Chat",
+          alt: "NeuroFlux interactive AI study assistant chat interface",
+        },
+      ],
       github: "",
       live: "https://neuroflux-frontend-r0sz.onrender.com",
       badge: "Full Stack",
+      techSummary: "React • Node.js • Express • MongoDB",
       techStack: ["React", "Node.js", "Express.js", "MongoDB"],
       points: [
         "Full-stack web architecture with separated client and server tiers.",
@@ -366,10 +402,38 @@ export const PORTFOLIO_DATA: PortfolioData = {
       category: "Frontend / E-Commerce",
       description:
         "A fast, modern e-commerce and grocery shopping interface built with React, Vite, Tailwind CSS, and Redux Toolkit for state management.",
-      image: "",
-      github: "",
-      live: "",
+      image: "/images/projects/grabitgo/grabitgo-home.png",
+      images: [
+        {
+          src: "/images/projects/grabitgo/grabitgo-home.png",
+          title: "Home / Product Discovery",
+          alt: "GrabItGo home page with grocery categories and product discovery",
+        },
+        {
+          src: "/images/projects/grabitgo/grabitgo-product.png",
+          title: "Product Details",
+          alt: "GrabItGo product details, pricing, and cart management",
+        },
+        {
+          src: "/images/projects/grabitgo/grabitgo-orders.png",
+          title: "Orders",
+          alt: "GrabItGo user orders history and tracking interface",
+        },
+        {
+          src: "/images/projects/grabitgo/grabitgo-admin-orders.png",
+          title: "Admin Orders",
+          alt: "GrabItGo admin dashboard for order management and fulfillment",
+        },
+        {
+          src: "/images/projects/grabitgo/grabitgo-admin-subcategory.png",
+          title: "Admin Subcategory Management",
+          alt: "GrabItGo admin category and subcategory configuration interface",
+        },
+      ],
+      github: "https://github.com/vinayaksharma403/GrabItGo",
+      live: "https://grabitgo-ashy.vercel.app/",
       badge: "Frontend",
+      techSummary: "React • Vite • Tailwind CSS • Redux",
       techStack: ["React", "Vite", "Tailwind CSS", "Redux Toolkit"],
       points: [
         "Interactive grocery shopping interface inspired by modern quick-commerce platforms.",
@@ -379,43 +443,33 @@ export const PORTFOLIO_DATA: PortfolioData = {
       ],
     },
     {
-      id: "project-ruralguardian",
-      name: "RURAL GUARDIAN",
-      title: "RURAL GUARDIAN",
-      tagline: "AI Bot for Fake News & Scam Detection in Rural Messaging",
-      category: "AI / Social Impact / Smart India Hackathon",
-      description:
-        "An AI-powered initiative conceptualized for Smart India Hackathon under the 'Smart Bharat: rural innovation and inclusion' theme to protect rural users against messaging scams and misinformation.",
-      image: "",
-      github: "",
-      live: "",
-      badge: "AI & Social Impact",
-      techStack: ["AI / ML", "Python", "NLP Concept", "Social Impact"],
-      points: [
-        "Smart India Hackathon project addressing rural misinformation, deception, and phishing threats.",
-        "Designed to analyze suspect messaging content and detect fraudulent patterns.",
-        "Proposed multimodal verification workflows featuring text and voice assistance for local language accessibility.",
-        "TODO — USER TO PROVIDE VERIFIED PROJECT DETAILS",
-      ],
-    },
-    {
       id: "project-portfolio",
-      name: "Portfolio",
-      title: "PORTFOLIO",
-      tagline: "Interactive 3D Developer Portfolio",
-      category: "Web Development",
+      name: "Vinayak Sharma — Developer Portfolio",
+      title: "VINAYAK SHARMA — DEVELOPER PORTFOLIO",
+      tagline: "Interactive Developer Portfolio & Showcase",
+      category: "Personal Portfolio / Frontend",
       description:
-        "Personal developer portfolio featuring retro brutalist design, interactive animations, sound effects, and 3D scenes.",
+        "Personal developer portfolio engineered with Next.js, React, TypeScript, Tailwind CSS, Framer Motion, and Three.js to showcase technical skills, full-stack projects, interactive resume experiences, and verified contact coordinates.",
       image: "",
+      images: [],
       github: "",
       live: "",
       badge: "Frontend / 3D",
-      techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"],
+      techSummary: "Next.js • React • TypeScript • Tailwind CSS • Framer Motion • Three.js",
+      techStack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Three.js",
+        "@react-three/fiber",
+      ],
       points: [
-        "Custom retro operating system-inspired interface with interactive launcher and sound effects.",
-        "Immersive 3D scenes integrated with React Three Fiber.",
-        "Smooth micro-interactions, responsive layouts, and animated component workflows.",
-        "Structured Single Source of Truth architecture ensuring consistent profile data.",
+        "Interactive retro brutalist interface featuring animated switchboard terminal and sound effects.",
+        "Dynamic 3D astronaut and interactive canvas scene powered by Three.js and React Three Fiber.",
+        "Responsive layout and smooth micro-interactions orchestrated using Framer Motion and Tailwind CSS.",
+        "Structured Single Source of Truth architecture managing profile data, skills, and project archives.",
       ],
     },
   ],
@@ -447,9 +501,9 @@ export const PORTFOLIO_DATA: PortfolioData = {
   // =====================================================================
   achievements: [
     {
-      title: "Smart India Hackathon — RURAL GUARDIAN",
+      title: "Smart India Hackathon",
       description:
-        "Contributed to RURAL GUARDIAN, an AI-powered project focused on detecting fake news and scams in rural messaging as part of the Smart India Hackathon.",
+        "Cleared the first round of the Smart India Hackathon (SIH) selection process; active in college hackathons and coding events.",
       type: "Hackathon / Innovation",
     },
     {

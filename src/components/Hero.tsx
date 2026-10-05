@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { playClickSound } from "../utils/sound";
 import AstronautScene from "./AstronautScene";
-import { useMediaQuery } from "react-responsive";
 
 const Hero = ({
   musicEnabled = false,
@@ -39,10 +38,6 @@ const Hero = ({
       value: "Software Engineer",
     },
   ];
-
-  const isDesktop = useMediaQuery({
-    query: "(min-width: 768px)",
-  });
 
   return (
     <section
@@ -195,9 +190,7 @@ hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all dura
                 }
                 transition={{
                   duration: 0.5,
-
                   delay: 1 + index * 0.1,
-
                   ease: "easeOut",
                 }}
                 whileHover={{
@@ -221,32 +214,29 @@ hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all dura
         </div>
 
         {/* RIGHT SIDE */}
-
-        {isDesktop && (
-          <div className="w-full md:w-1/2 min-h-150 flex items-center justify-center">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: -250,
-                rotate: -8,
-                scale: 0.85,
-              }}
-              animate={{
-                opacity: started ? 1 : 0,
-                y: started ? 0 : -250,
-                rotate: started ? 0 : -8,
-                scale: started ? 1 : 0.85,
-              }}
-              transition={{
-                duration: 1.2,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="w-full h-full md:-translate-x-2.5"
-            >
-              <AstronautScene />
-            </motion.div>
-          </div>
-        )}
+        <div className="hidden md:flex w-full md:w-1/2 min-h-150 items-center justify-center">
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -250,
+              rotate: -8,
+              scale: 0.85,
+            }}
+            animate={{
+              opacity: started ? 1 : 0,
+              y: started ? 0 : -250,
+              rotate: started ? 0 : -8,
+              scale: started ? 1 : 0.85,
+            }}
+            transition={{
+              duration: 1.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="w-full h-full md:-translate-x-2.5"
+          >
+            <AstronautScene />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

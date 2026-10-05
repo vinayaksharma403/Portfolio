@@ -70,15 +70,30 @@ export default function BootLoader({
     return () => clearTimeout(start);
   }, []);
 
-  const squares = React.useMemo(
-    () =>
-      Array.from({ length: 22 }).map(() => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        delay: Math.random() * 3,
-      })),
-    [],
-  );
+const SQUARES = [
+  { left: 8, top: 12, delay: 0.2 },
+  { left: 24, top: 82, delay: 1.4 },
+  { left: 42, top: 28, delay: 0.7 },
+  { left: 68, top: 74, delay: 2.1 },
+  { left: 85, top: 18, delay: 0.9 },
+  { left: 14, top: 65, delay: 1.8 },
+  { left: 92, top: 58, delay: 2.5 },
+  { left: 35, top: 48, delay: 0.4 },
+  { left: 55, top: 15, delay: 1.2 },
+  { left: 78, top: 88, delay: 2.8 },
+  { left: 5, top: 40, delay: 0.6 },
+  { left: 62, top: 42, delay: 1.9 },
+  { left: 19, top: 90, delay: 2.3 },
+  { left: 48, top: 85, delay: 0.8 },
+  { left: 72, top: 30, delay: 1.5 },
+  { left: 88, top: 70, delay: 0.3 },
+  { left: 30, top: 10, delay: 2.0 },
+  { left: 95, top: 25, delay: 1.1 },
+  { left: 50, top: 60, delay: 2.7 },
+  { left: 12, top: 32, delay: 1.6 },
+  { left: 80, top: 52, delay: 0.5 },
+  { left: 28, top: 70, delay: 2.2 },
+];
 
   useEffect(() => {
   if (loading) {
@@ -106,7 +121,7 @@ export default function BootLoader({
         >
           {/* FLOATING BACKGROUND */}
 
-          {squares.map((square, i) => (
+          {SQUARES.map((square, i) => (
             <motion.div
               key={i}
               className="absolute w-5 h-5 border-2 border-black/60 bg-white/40 rounded-md"

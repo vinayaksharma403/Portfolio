@@ -1,17 +1,19 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { Model } from "./Astronaut";
 import { OrbitControls } from "@react-three/drei";
-import { useMediaQuery } from "react-responsive";
+import { useEffect, useState } from "react";
 
 export default function AstronautScene() {
-  const isDesktop = useMediaQuery({
-    query: "(min-width: 768px)",
-  });
+  const [mounted, setMounted] = useState(false);
 
-  if (!isDesktop) {
-    return null;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="w-full h-full" />;
   }
 
   return (
@@ -19,7 +21,7 @@ export default function AstronautScene() {
       <Canvas>
         <Model
           scale={1.75}
-          rotation={[0.75, Math.PI-0.45, -0.8]}
+          rotation={[0.75, Math.PI - 0.45, -0.8]}
           position={[1.5, -0.9, 1]}
         />
 

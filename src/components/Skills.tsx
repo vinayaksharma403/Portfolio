@@ -198,7 +198,7 @@ const Skills = ({ musicEnabled = false }: { musicEnabled?: boolean }) => {
     return currentData.equipment.map((item, index) => ({
       name: item,
       ...positions[index],
-      rotate: Math.random() * 8 - 4,
+      rotate: ((index * 3) % 8) - 4,
     }));
   }, [activeTab]);
 

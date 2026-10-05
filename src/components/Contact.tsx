@@ -16,6 +16,7 @@ export default function Contact({
     name: "",
     email: "",
     message: "",
+    honeypot: "",
   });
 
   const MY_EMAIL = "vinayaksharma4777@gmail.com";
@@ -35,16 +36,24 @@ export default function Contact({
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          honeypot: formData.honeypot,
+        }),
       });
 
+      const data = await response.json().catch(() => null);
+
       if (response.ok) {
-        toast.success("Signal received! I'll get back to you soon.");
-        setFormData({ name: "", email: "", message: "" });
+        toast.success("Signal received! Transmission sent successfully.");
+        setFormData({ name: "", email: "", message: "", honeypot: "" });
       } else {
-        toast.error("Transmission failed. Please try again.");
+        const errorMessage = data?.error || "Transmission failed. Please try again.";
+        toast.error(errorMessage);
       }
-    } catch (error) {
+    } catch {
       toast.error("An error occurred. Check your connection.");
     } finally {
       setIsSubmitting(false);
@@ -153,6 +162,18 @@ export default function Contact({
                 className="relative z-10 flex flex-col h-full justify-between space-y-1"
               >
                 <div>
+                  {/* Honeypot field for bot protection */}
+                  <input
+                    type="text"
+                    name="honeypot"
+                    value={formData.honeypot}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden pointer-events-none opacity-0 h-0 w-0 absolute"
+                    aria-hidden="true"
+                  />
+
                   <div className="mb-4">
                     <label className="block text-md font-black mb-2 tracking-wide text-[#444]">
                       YOUR NAME
@@ -162,6 +183,7 @@ export default function Contact({
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
+                      maxLength={100}
                       required
                       className="w-full bg-white border-4 border-[#222] rounded-xl p-4 font-semibold text-[#111] shadow-[4px_4px_0_#222] focus:outline-none focus:translate-y-1 focus:translate-x-1 focus:shadow-[0px_0px_0_#222] transition-all"
                     />
@@ -176,6 +198,7 @@ export default function Contact({
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
+                      maxLength={254}
                       required
                       className="w-full bg-white border-4 border-[#222] rounded-xl p-4 font-semibold text-[#111] shadow-[4px_4px_0_#222] focus:outline-none focus:translate-y-1 focus:translate-x-1 focus:shadow-[0px_0px_0_#222] transition-all"
                     />
@@ -190,6 +213,7 @@ export default function Contact({
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
+                      maxLength={5000}
                       required
                       className="w-full bg-white border-4 border-[#222] rounded-xl p-4 font-semibold text-[#111] shadow-[4px_4px_0_#222] focus:outline-none focus:translate-y-1 focus:translate-x-1 focus:shadow-[0px_0px_0_#222] resize-none transition-all"
                     ></textarea>
@@ -221,7 +245,7 @@ export default function Contact({
                       type="reset"
                       onClick={() => {
                         if (musicEnabled) playClickSound();
-                        setFormData({ name: "", email: "", message: "" });
+                        setFormData({ name: "", email: "", message: "", honeypot: "" });
                       }}
                       className="flex items-center gap-2 rounded-lg border-4 border-[#222] bg-white px-6 py-3 font-black text-[#111] shadow-[0_5px_0_#222] hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all duration-200 cursor-pointer"
                     >
