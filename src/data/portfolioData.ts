@@ -453,7 +453,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       image: "",
       images: [],
       github: "",
-      live: "",
+      live: "https://portfolio-dhleivsqf-vinayaksharma403s-projects.vercel.app/",
       badge: "Frontend / 3D",
       techSummary: "Next.js • React • TypeScript • Tailwind CSS • Framer Motion • Three.js",
       techStack: [
